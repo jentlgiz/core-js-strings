@@ -20,8 +20,15 @@
  *   getStringLength(undefined) => 0
  */
 function getStringLength(value) {
-  return `${value.length}`;
-}
+  if (typeof value === 'undefined') {
+    return 0;
+  }
+  return value.length;
+} // REDO
+
+// const stringSplit = value.split('');
+// const stringJoin = stringSplit.join('');
+// return stringJoin.length;
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -37,8 +44,11 @@ function getStringLength(value) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  if (typeof value === 'string') {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -98,8 +108,8 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   removeLeadingWhitespaces('cat ') => 'cat '
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
-function removeLeadingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingWhitespaces(value) {
+  return value.trimStart();
 }
 
 /**
@@ -113,8 +123,8 @@ function removeLeadingWhitespaces(/* value */) {
  *   removeTrailingWhitespaces('cat ') => 'cat'
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
-function removeTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeTrailingWhitespaces(value) {
+  return value.trimEnd();
 }
 
 /**
@@ -130,8 +140,11 @@ function removeTrailingWhitespaces(/* value */) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  if (times > 0) {
+    return str.repeat(times);
+  }
+  return '';
 }
 
 /**
@@ -146,9 +159,18 @@ function repeatString(/* str, times */) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const stringFull = str;
+  const stringRemove = value;
+  const stringNew = stringFull.replace(stringRemove, '');
+  return stringNew;
 }
+
+// const originalString = 'Hello, World!';
+// const substringToRemove = 'World';
+// const newString = originalString.replace(substringToRemove, '');
+
+// console.log(newString); // Output: 'Hello, !'
 
 /**
  * Remove the last occurrence of a substring from a string.
@@ -162,9 +184,9 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
-}
+function removeLastOccurrences(str, value) {
+  return value(value.replace(str));
+} // REDO
 
 /**
  * Calculate the sum of character codes of the given string.
@@ -239,8 +261,10 @@ function formatTime(/* minutes, seconds */) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  const splitString = str.split('');
+  const stringReverse = splitString.reverse();
+  return stringReverse.join('');
 }
 
 /**
@@ -335,8 +359,13 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const stringSplit = str.split('');
+  const stringReverse = stringSplit.reverse();
+  const stringJoin = stringReverse.join('');
+  const wordsSplit = stringJoin.split(' ');
+  const wordsReverse = wordsSplit.reverse();
+  return wordsReverse.join('');
 }
 
 /**
