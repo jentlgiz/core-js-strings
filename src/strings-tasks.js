@@ -149,8 +149,8 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  return str.slice(str.indexOf(value, str));
 }
 
 /**
@@ -165,8 +165,9 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const subString = str.lastIndexOf(value, str);
+  return value.slice('', subString);
 }
 
 /**
@@ -181,8 +182,8 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  return str.charCodeAt(0);
 }
 
 /**
@@ -340,14 +341,15 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(str) {
-  const stringSplit = str.split('');
-  const stringReverse = stringSplit.reverse();
-  const stringJoin = stringReverse.join('');
-  const wordsSplit = stringJoin.split(' ');
-  const wordsReverse = wordsSplit.reverse();
-  return wordsReverse.join('');
+function reverseWords(/* str */) {
+  throw new Error('Not implemented');
 }
+// const stringSplit = str.split('');
+// const stringReverse = stringSplit.reverse();
+// const stringJoin = stringReverse.join('');
+// const wordsSplit = stringJoin.split(' ').reverse();
+// const wordsSplits = wordsSplit.split(' ');
+// return wordsSplits.join('');
 
 /**
  * Inverts the case of each character in the given string.
