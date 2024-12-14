@@ -19,16 +19,9 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(value) {
-  if (typeof value === 'undefined') {
-    return 0;
-  }
-  return value.length;
-} // REDO
-
-// const stringSplit = value.split('');
-// const stringJoin = stringSplit.join('');
-// return stringJoin.length;
+function getStringLength(/* value */) {
+  throw new Error('Not implemented');
+}
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -44,11 +37,8 @@ function getStringLength(value) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(value) {
-  if (typeof value === 'string') {
-    return true;
-  }
-  return false;
+function isString(/* value */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -159,18 +149,9 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(str, value) {
-  const stringFull = str;
-  const stringRemove = value;
-  const stringNew = stringFull.replace(stringRemove, '');
-  return stringNew;
+function removeFirstOccurrences(/* str, value */) {
+  throw new Error('Not implemented');
 }
-
-// const originalString = 'Hello, World!';
-// const substringToRemove = 'World';
-// const newString = originalString.replace(substringToRemove, '');
-
-// console.log(newString); // Output: 'Hello, !'
 
 /**
  * Remove the last occurrence of a substring from a string.
@@ -184,9 +165,9 @@ function removeFirstOccurrences(str, value) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(str, value) {
-  return value(value.replace(str));
-} // REDO
+function removeLastOccurrences(/* str, value */) {
+  throw new Error('Not implemented');
+}
 
 /**
  * Calculate the sum of character codes of the given string.
