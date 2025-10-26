@@ -152,15 +152,17 @@ function repeatString(/* str, times */) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(str, value) {
-  const inputStr = str;
-  const removeStr = value;
-  const newStr = inputStr.replace(removeStr, '');
-  return newStr;
+function removeFirstOccurrences(/* str, value */) {
+  throw new Error('Not implemented');
 }
 
 // const removeSub = str.indexOf(value, 3);
 // return str.slice(removeSub);
+
+// const inputStr = str;
+// const removeStr = value;
+// const newStr = inputStr.replace(removeStr, '');
+// return newStr;
 
 // TO REDO
 
@@ -384,8 +386,8 @@ function invertCase(/* str */) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -398,8 +400,8 @@ function getStringFromTemplate(/* firstName, lastName */) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  return value.slice(7, -1);
 }
 
 /**
@@ -435,8 +437,8 @@ function unbracketTag(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
