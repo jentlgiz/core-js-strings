@@ -19,8 +19,14 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(value) {
+  if (value === null) {
+    return 0;
+  }
+  if (value === undefined) {
+    return 0;
+  }
+  return value.length;
 }
 
 /**
@@ -37,8 +43,8 @@ function getStringLength(/* value */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  return typeof value === 'string' || value instanceof String;
 }
 
 /**
@@ -147,9 +153,14 @@ function repeatString(/* str, times */) {
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeFirstOccurrences(str, value) {
-  const removeSub = str.indexOf(value);
-  return str.slice(removeSub);
+  const inputStr = str;
+  const removeStr = value;
+  const newStr = inputStr.replace(removeStr, '');
+  return newStr;
 }
+
+// const removeSub = str.indexOf(value, 3);
+// return str.slice(removeSub);
 
 // TO REDO
 
@@ -182,7 +193,7 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes() => 0
  */
 function sumOfCodes(/* str */) {
-  // return str.charCodeAt;
+  throw new Error('Not implemented');
 }
 
 /**
@@ -402,8 +413,11 @@ function extractNameFromTemplate(/* value */) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  if (str.startsWith('<') && str.endsWith('>')) {
+    return str.slice(1, -1);
+  }
+  return str;
 }
 
 /**
