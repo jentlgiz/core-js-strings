@@ -250,8 +250,11 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  const editMinutes = minutes.toString().padStart(2, '0');
+  const editSeconds = seconds.toString().padStart(2, '0');
+
+  return `${editMinutes}:${editSeconds}`;
 }
 
 /**
@@ -407,8 +410,17 @@ function reverseWords(str) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let newString = '';
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === str[i].toLowerCase()) {
+      newString += str[i].toUpperCase();
+    } else {
+      newString += str[i].toLowerCase();
+    }
+  }
+  return newString;
 }
 
 /**
@@ -495,8 +507,16 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const encodedRot13 = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+
+  let result = '';
+
+  for (let i = 0; i < str.length - 1; i += 1) {
+    result += encodedRot13[alphabet.indexOf(str[i])];
+  }
+  return result;
 }
 
 /**
