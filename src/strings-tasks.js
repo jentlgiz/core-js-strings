@@ -136,8 +136,11 @@ function removeTrailingWhitespaces(value) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  if (times < 0) {
+    return '';
+  }
+  return str.repeat(times);
 }
 
 /**
@@ -302,8 +305,28 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const vowelsArray = [
+    'a',
+    'e',
+    'i',
+    'o',
+    'u',
+    'y',
+    'A',
+    'E',
+    'I',
+    'O',
+    'U',
+    'Y',
+  ];
+  let result = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    if (vowelsArray.includes(str[i])) {
+      result += 1;
+    }
+  }
+  return result;
 }
 
 /**
@@ -338,8 +361,17 @@ function isPalindrome(str) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const sentenceArray = sentence.split(' ');
+  let longestWord = '';
+
+  for (let i = 0; i < sentenceArray.length; i += 1) {
+    const oneWord = sentenceArray[i];
+    if (oneWord.length > longestWord.length) {
+      longestWord = oneWord;
+    }
+  }
+  return longestWord;
 }
 
 /**
@@ -370,6 +402,17 @@ function reverseWords(str) {
 function invertCase(/* str */) {
   throw new Error('Not implemented');
 }
+
+// let newString = '';
+
+// for (let i = 0; i < str.length; i = +1) {
+//   if (str[i] === str[i].toUpperCase()) {
+//     newString += str[i].toLowerCase();
+//   } else {
+//     newString += str[i].toUpperCase();
+//   }
+// }
+// return newString;
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
