@@ -195,8 +195,16 @@ function removeLastOccurrences(str, value) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  let result = 0;
+  if (typeof str !== 'string') {
+    return 0;
+  }
+
+  for (let i = 0; i < str.length; i += 1) {
+    result += str.charCodeAt(i);
+  }
+  return result;
 }
 
 /**
@@ -402,17 +410,6 @@ function reverseWords(str) {
 function invertCase(/* str */) {
   throw new Error('Not implemented');
 }
-
-// let newString = '';
-
-// for (let i = 0; i < str.length; i = +1) {
-//   if (str[i] === str[i].toUpperCase()) {
-//     newString += str[i].toLowerCase();
-//   } else {
-//     newString += str[i].toUpperCase();
-//   }
-// }
-// return newString;
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
